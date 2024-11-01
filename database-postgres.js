@@ -2,37 +2,47 @@ import { randomUUID } from "crypto";
 import { sql } from './db.js';
 
 export class DatabasePostgres { 
-  async listUsers() {
-    const users = await sql`select * from users`;
-    return users;
+  async listclientes () {
+    const clientes = await sql`select * from clientes`;
+    return clientes;
   }
 
-  async createUser(user) {
+  async createClientes(cliente) {
     const id = randomUUID();
     console.log('id', id);
-    const name = user.name;
-    const password = user.password;
-    const profile = user.profile;
-    
-    await sql`insert into users (id, name, password, profile)
-    values (${id}, ${name}, ${password}, ${profile})`
+    const nome = cliente.nome;
+    const senha = cliente.senha;
+    const email= cliente.email;
+    const telefone= cliente.telefone;
+
+    const numero_quarto = cliente.numero_quarto;
+    const data_inicio = cliente.data_inicio;
+    const data_saida = cliente.data_saida;
+        await sql`insert into clientes (id, nome, senha,email,telefone, numero_quarto, data_inicio)
+    values (${id}, ${nome}, ${senha}, ${email}, ${telefone},${numero_quarto},${data_inicio}, ${data_saida})`
   }
 
-  async updateUser(id, user) {
-    const name = user.name;
-    const password = user.password;
-    const profile = user.profile;
+  async updateClientes(id, cliente) {
+    const nome = cliente.nome;
+    const senha = cliente.senha;
+    const email= cliente.email;
+    const numero_quarto = cliente.numero_quarto;
+    const data_inicio = cliente.data_inicio;
+    const data_saida = cliente.data_saida;
 
-    await sql`update users set 
-        name = ${name},
-        password = ${password},
-        profile = ${profile}
+    await sql`update clientes set 
+        nome = ${nome},
+        senha = ${senha},
+        email = ${email},
+        numero_quarto = ${numero_quarto},
+        data_inicio = ${data_inicio},
+        data_saida = ${data_saida},
         where id = ${id}
     `;
   }
 
-  async deleteUser(id) {
-    await sql`delete from users where id = ${id}`
+  async deleteCliente(id) {
+    await sql`delete from clientes where id = ${id}`
   }
 
 }

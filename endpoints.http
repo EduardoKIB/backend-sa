@@ -1,22 +1,30 @@
 #PARA UTILIZAR ESSES ENDPOINTS É NECESSÁRIO INSTALAR A EXTENSÃO DO VSCODE "REST CLIENT"
 ###
 
-GET http://localhost:3333/users
+GET http://localhost:3333/clientes
 
 ###
 
-POST http://localhost:3333/users
+POST http://localhost:3333/clientes
 Content-Type: application/json
 
 {
     "name": "ORELHA",
-    "password": "12345",
-    "profile": "COMUM"
+    "senha": "12345",
+    "email": "COMUM",
+    "telefone": "COMUM",
+    "numero_quarto": "COMUM",
+    "data_inicio": "COMUM",
+    "data_saida": "COMUM"
 }
+
+
+  
+
 
 ###
 
-PUT http://localhost:3333/users/id
+PUT http://localhost:3333/clientes/id
 Content-Type: application/json
 
 {
@@ -27,4 +35,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3333/users/id
+DELETE http://localhost:3333/clientes/id
