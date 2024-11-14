@@ -1,5 +1,5 @@
 import { sql } from './db.js'
-
+// rodar no terminal  node .\populate-table.js 
 sql`
 
 INSERT INTO CLIENTE (nome, senha, email, telefone, Data_Entrada, Data_Saida) VALUES
