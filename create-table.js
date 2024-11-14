@@ -1,16 +1,20 @@
 import { sql } from './db.js'
 
 sql`
-  CREATE TABLE clientes  (
-      id text PRIMARY KEY NOT NULL,
-      nome character varying(255) NOT NULL,
-      senha character varying(50) NOT NULL,
-      numero_quarto integer NOT NULL,
-      email character varying(255) NOT NULL,
-      telefone TEXT NOT NULL, 
-      data_inicio date NOT NULL,
-      data_saida date NOT NULL
-  );
+
+CREATE TABLE CLIENTE(
+  Idcliente SERIAL PRIMARY KEY NOT NULL,
+  nome varchar(50) NOT NULL,
+  senha varchar(50) NOT NULL,
+  email varchar(50) NOT NULL,
+  telefone varchar(50) NOT NULL,
+  Data_Entrada date NOT NULL,
+  Data_Saida date NOT NULL
+);
+
+
+
+
 `.then(() => {
   console.log('tabela criada');
 })
